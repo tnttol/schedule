@@ -15,6 +15,9 @@ class AbstractSubject
         return $this;
     }
 
+    /**
+     * @return array<TeacherInterface>
+     */
     public function getTeachers(): array
     {
         return $this->teachers;

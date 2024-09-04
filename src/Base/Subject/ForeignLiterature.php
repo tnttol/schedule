@@ -3,13 +3,13 @@
 namespace App\Base\Subject;
 
 use App\Base\SubjectInterface;
-use App\Base\Teacher\Akimova;
+use App\Base\Teacher\Zarlit;
 
 class ForeignLiterature extends AbstractSubject implements SubjectInterface
 {
     public function __construct()
     {
-        $this->addTeacher(new Akimova());
+        $this->addTeacher(new Zarlit());
     }
 
     public function getSubjectName(): string

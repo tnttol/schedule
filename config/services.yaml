@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    timezone: 'Europe/Kiev'
 
 services:
     # default configuration for services in *this* file
@@ -22,3 +23,18 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\EnvService:
+        arguments:
+            $env: '%env(APP_ENV)%'
+
+    Monolog\Handler\TelegramBotHandler:
+        arguments:
+            - '%env(TELEGRAM_BOT_TOKEN)%'
+            - '%env(TELEGRAM_BOT_LOG_CHANNEL)%'
+
+    App\Service\TelegramService:
+        arguments:
+            $token: '%env(string:TELEGRAM_BOT_TOKEN)%'
+            $channelId: '%env(string:TELEGRAM_BOT_CHANNEL)%'
+            $logChannelId: '%env(TELEGRAM_BOT_LOG_CHANNEL)%'

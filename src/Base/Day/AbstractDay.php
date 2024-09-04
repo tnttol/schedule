@@ -15,6 +15,9 @@ class AbstractDay
         return $this;
     }
 
+    /**
+     * @return array<LessonInterface>
+     */
     public function getLessons(): array
     {
         return $this->lessons;

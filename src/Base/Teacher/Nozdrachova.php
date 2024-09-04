@@ -14,8 +14,8 @@ class Nozdrachova implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            '',
-            'код: '
+            'https://us04web.zoom.us/j/7787554364?pwd=WiEG1ah8N1oDW9ZcfC4Iv4jAaWRgCj.1',
+            'код: 111'
         ]);
     }
 }

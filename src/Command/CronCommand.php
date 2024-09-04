@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Service\TelegramService;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,14 +12,21 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 #[AsCommand(name: 'app:cron')]
 class CronCommand extends Command
 {
+    public function __construct(
+        private readonly TelegramService $telegramService
+    ) {
+        parent::__construct();
+    }
+
     protected function configure(): void
     {
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new SymfonyStyle($input, $output);
+        //$this->telegramService->sendLog('test', 'test');
 
+        $io = new SymfonyStyle($input, $output);
         $io->success('Finished.');
 
         return Command::SUCCESS;

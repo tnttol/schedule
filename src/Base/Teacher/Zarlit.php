@@ -1,14 +1,14 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Base\Teacher;
 
 use App\Base\TeacherInterface;
 
-class Zdorovie implements TeacherInterface
+class Zarlit implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'нет данных';
+        return 'Инна Дмитриевна';
     }
 
     public function getInfo(): string

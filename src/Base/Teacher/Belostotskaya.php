@@ -14,8 +14,8 @@ class Belostotskaya implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            '',
-            'код: '
+            '-',
+            'код: -'
         ]);
     }
 }

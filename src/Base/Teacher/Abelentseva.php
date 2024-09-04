@@ -4,11 +4,11 @@ namespace App\Base\Teacher;
 
 use App\Base\TeacherInterface;
 
-class Angl implements TeacherInterface
+class Abelentseva implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Алина Александровна';
+        return 'Абеленцева Алина Александровна';
     }
 
     public function getInfo(): string
