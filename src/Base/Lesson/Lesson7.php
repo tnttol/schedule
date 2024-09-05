@@ -6,6 +6,11 @@ use App\Base\LessonInterface;
 
 class Lesson7 extends AbstractLesson implements LessonInterface
 {
+    public function getNumber(): int
+    {
+        return 7;
+    }
+
     public function getStartTime(): string
     {
         return '14:30';

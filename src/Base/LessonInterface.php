@@ -6,6 +6,7 @@ use App\Base\Lesson\AbstractLesson;
 
 interface LessonInterface
 {
+    public function getNumber(): int;
     public function getStartTime(): string;
     public function getEndTime(): string;
     public function addSubject(SubjectInterface $subject);

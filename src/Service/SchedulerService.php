@@ -49,9 +49,9 @@ readonly class SchedulerService
         $messages = [];
         $header = 'Расписание уроков на сегодня';
 
-        foreach ($day->getLessons() as $n => $lesson) {
+        foreach ($day->getLessons() as $lesson) {
             $subject = $lesson->getSubject();
-            $messages[] = 'Урок ' . $n . ': (' . $lesson->getStartTime() . ' - ' . $lesson->getEndTime() . ') ' . $subject->getSubjectName();
+            $messages[] = 'Урок ' . $lesson->getNumber() . ': (' . $lesson->getStartTime() . ' - ' . $lesson->getEndTime() . ') ' . $subject->getSubjectName();
         }
 
         if (empty($messages)) {
@@ -77,13 +77,13 @@ readonly class SchedulerService
         $header = '';
         $messages = [];
 
-        foreach ($day->getLessons() as $n => $lesson) {
+        foreach ($day->getLessons() as $lesson) {
             if (!$this->checkIsNowTime(new DateTime($lesson->getStartTime()))) {
                 continue;
             }
 
             $subject = $lesson->getSubject();
-            $header = 'Урок ' . $n . ': ' . $subject->getSubjectName();
+            $header = 'Урок ' . $lesson->getNumber() . ': ' . $subject->getSubjectName();
             $messages[] = 'Время: ' . $lesson->getStartTime() . ' - ' . $lesson->getEndTime();
 
             foreach ($subject->getTeachers() as $teacher) {
