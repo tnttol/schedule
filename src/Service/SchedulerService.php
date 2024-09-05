@@ -116,12 +116,12 @@ readonly class SchedulerService
         $header = '';
         $messages = [];
 
-        foreach ($day->getLessons() as $n => $lesson) {
+        foreach ($day->getLessons() as $lesson) {
             if (!$this->checkIsNowTime(new DateTime($lesson->getEndTime()))) {
                 continue;
             }
             $subject = $lesson->getSubject();
-            $header = 'Урок ' . $n . ': ' . $subject->getSubjectName();
+            $header = 'Урок ' . $lesson->getNumber() . ': ' . $subject->getSubjectName();
             $messages[] = 'Конец урока';
         }
 
