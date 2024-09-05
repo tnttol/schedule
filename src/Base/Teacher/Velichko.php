@@ -8,7 +8,7 @@ class Velichko implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Величко Олена Михайлівна';
+        return 'teacher.Velichko';
     }
 
     public function getInfo(): string

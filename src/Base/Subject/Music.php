@@ -3,13 +3,13 @@
 namespace App\Base\Subject;
 
 use App\Base\SubjectInterface;
-use App\Base\Teacher\Muzika;
+use App\Base\Teacher\Mishchenko;
 
 class Music extends AbstractSubject implements SubjectInterface
 {
     public function __construct()
     {
-        $this->addTeacher(new Muzika());
+        $this->addTeacher(new Mishchenko());
     }
 
     public function getSubjectName(): string

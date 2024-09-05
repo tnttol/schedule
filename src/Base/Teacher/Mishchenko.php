@@ -4,11 +4,11 @@ namespace App\Base\Teacher;
 
 use App\Base\TeacherInterface;
 
-class Risovanie implements TeacherInterface
+class Mishchenko implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'no information';
+        return 'teacher.Mishchenko';
     }
 
     public function getInfo(): string
