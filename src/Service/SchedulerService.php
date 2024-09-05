@@ -89,6 +89,7 @@ readonly class SchedulerService
             foreach ($subject->getTeachers() as $teacher) {
                 $messages[] = 'Учитель: ' . $teacher->getFullName();
                 $messages[] = $teacher->getInfo();
+                $messages[] = '';
             }
         }
 

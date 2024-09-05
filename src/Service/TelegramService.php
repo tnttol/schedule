@@ -55,6 +55,7 @@ final readonly class TelegramService
         $params = [
             'text' => $text,
             'parse_mode' => 'markdown',
+            'disable_web_page_preview' => true,
             'chat_id' => $this->channelId
         ];
 
@@ -76,6 +77,7 @@ final readonly class TelegramService
         $params = [
             'text' => $text,
             'parse_mode' => 'markdown',
+            'disable_web_page_preview' => true,
             'chat_id' => $this->logChannelId
         ];
 
