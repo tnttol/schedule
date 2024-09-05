@@ -1,21 +1,20 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Base\Teacher;
 
 use App\Base\TeacherInterface;
 
-class Priroda implements TeacherInterface
+class Grinchuk implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'нет данных';
+        return 'Гринчук Светлана';
     }
 
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            '-',
-            'код: -'
+            'https://meet.google.com/htw-xyai-wce'
         ]);
     }
 }

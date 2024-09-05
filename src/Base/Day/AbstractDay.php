@@ -6,11 +6,12 @@ use App\Base\LessonInterface;
 
 class AbstractDay
 {
+    private int $number = 1;
     private array $lessons;
 
     public function addLesson(LessonInterface $lesson): AbstractDay
     {
-        $this->lessons[] = $lesson;
+        $this->lessons[$this->number++] = $lesson;
 
         return $this;
     }

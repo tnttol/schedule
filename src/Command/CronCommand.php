@@ -2,18 +2,18 @@
 
 namespace App\Command;
 
-use App\Service\TelegramService;
+use App\Service\SchedulerService;
+use DateException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(name: 'app:cron')]
 class CronCommand extends Command
 {
     public function __construct(
-        private readonly TelegramService $telegramService
+        private readonly SchedulerService $schedulerService
     ) {
         parent::__construct();
     }
@@ -22,12 +22,14 @@ class CronCommand extends Command
     {
     }
 
+    /**
+     * @throws DateException
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        //$this->telegramService->sendLog('test', 'test');
-
-        $io = new SymfonyStyle($input, $output);
-        $io->success('Finished.');
+        $this->schedulerService->daySchedule();
+        $this->schedulerService->checkStartAndSend();
+        $this->schedulerService->checkEndAndSend();
 
         return Command::SUCCESS;
     }
