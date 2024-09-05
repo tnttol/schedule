@@ -6,7 +6,7 @@ use App\Base\LessonInterface;
 
 class AbstractDay
 {
-    private array $lessons;
+    private array $lessons = [];
 
     public function addLesson(LessonInterface $lesson): AbstractDay
     {
