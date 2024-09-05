@@ -8,7 +8,7 @@ class Nozdrachova implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Ноздрачёва Дарья Павловна';
+        return 'teacher.Nozdrachova';
     }
 
     public function getInfo(): string

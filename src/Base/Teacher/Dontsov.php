@@ -8,7 +8,7 @@ class Dontsov implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Донцов Ігор Анатолійович';
+        return 'teacher.Dontsov';
     }
 
     public function getInfo(): string

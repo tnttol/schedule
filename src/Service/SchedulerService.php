@@ -3,26 +3,31 @@
 namespace App\Service;
 
 use App\Base\DayInterface;
+use App\Base\LessonInterface;
 use DateException;
 use DateInterval;
 use DateTime;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-readonly class SchedulerService
+final readonly class SchedulerService
 {
     public function __construct(
-        private TelegramService $telegramService
+        private TelegramService $telegramService,
+        private TranslatorInterface $translator
     ) {
     }
 
-    private function getDay(): ?DayInterface
+    /**
+     * @return ?array<LessonInterface>
+     */
+    private function getLessons(bool $isNext = false): ?array
     {
-        $className = '\App\Base\Day\Day' . date('N');
+        $className = '\App\Base\Day\Day' . ((int) date('N') + ($isNext ? 1 : 0));
 
-        if (!class_exists($className)) {
-            return null;
-        }
+        /** @var ?DayInterface $day */
+        $day = class_exists($className) ? new $className : null;
 
-        return new $className;
+        return $day?->getLessons();
     }
 
     private function checkIsNowTime(DateTime $time): bool
@@ -36,10 +41,15 @@ readonly class SchedulerService
     /**
      * @throws DateException
      */
-    public function daySchedule(int $minutesBefore = 60): bool
+    public function todaySchedule(int $minutesBefore = 60): bool
     {
-        $day = $this->getDay();
-        $firstLesson = current($day->getLessons());
+        $lessons = $this->getLessons();
+
+        if (!$lessons) {
+            return false;
+        }
+
+        $firstLesson = current($lessons);
         $checkTime = (new DateTime($firstLesson->getStartTime()))->sub(new DateInterval('PT' . $minutesBefore . 'M'));
 
         if (!$this->checkIsNowTime($checkTime)) {
@@ -47,11 +57,15 @@ readonly class SchedulerService
         }
 
         $messages = [];
-        $header = 'Расписание уроков на сегодня';
 
-        foreach ($day->getLessons() as $lesson) {
+        foreach ($lessons as $lesson) {
             $subject = $lesson->getSubject();
-            $messages[] = 'Урок ' . $lesson->getNumber() . ': (' . $lesson->getStartTime() . ' - ' . $lesson->getEndTime() . ') ' . $subject->getSubjectName();
+            $messages[] = $this->translator->trans('schedule.full_info', [
+                '%number%' => $lesson->getNumber(),
+                '%start_time%' => $lesson->getStartTime(),
+                '%end_time%' => $lesson->getEndTime(),
+                '%subject%' => $this->translator->trans($subject->getSubjectName())
+            ]);
         }
 
         if (empty($messages)) {
@@ -60,7 +74,52 @@ readonly class SchedulerService
 
         $message = trim(implode(PHP_EOL, $messages));
 
-        return $this->telegramService->sendLog($header, $message);
+        return $this->telegramService->sendLog(
+            $this->translator->trans('schedule.today'),
+            $message
+        );
+    }
+
+    /**
+     * @throws DateException
+     */
+    public function tomorrowSchedule(int $minutesAfter = 10): bool
+    {
+        $lessons = $this->getLessons(true);
+
+        if (!$lessons) {
+            return false;
+        }
+
+        $lastLesson = end($lessons);
+        $checkTime = (new DateTime($lastLesson->getEndTime()))->add(new DateInterval('PT' . $minutesAfter . 'M'));
+
+        if (!$this->checkIsNowTime($checkTime)) {
+            return false;
+        }
+
+        $messages = [];
+
+        foreach ($lessons as $lesson) {
+            $subject = $lesson->getSubject();
+            $messages[] = $this->translator->trans('schedule.full_info', [
+                '%number%' => $lesson->getNumber(),
+                '%start_time%' => $lesson->getStartTime(),
+                '%end_time%' => $lesson->getEndTime(),
+                '%subject%' => $this->translator->trans($subject->getSubjectName())
+            ]);
+        }
+
+        if (empty($messages)) {
+            return false;
+        }
+
+        $message = trim(implode(PHP_EOL, $messages));
+
+        return $this->telegramService->sendLog(
+            $this->translator->trans('schedule.tomorrow'),
+            $message
+        );
     }
 
     /**
@@ -68,26 +127,34 @@ readonly class SchedulerService
      */
     public function checkStartAndSend(): bool
     {
-        $day = $this->getDay();
+        $lessons = $this->getLessons();
 
-        if (!$day) {
+        if (!$lessons) {
             return false;
         }
 
         $header = '';
         $messages = [];
 
-        foreach ($day->getLessons() as $lesson) {
+        foreach ($lessons as $lesson) {
             if (!$this->checkIsNowTime(new DateTime($lesson->getStartTime()))) {
                 continue;
             }
 
             $subject = $lesson->getSubject();
-            $header = 'Урок ' . $lesson->getNumber() . ': ' . $subject->getSubjectName();
-            $messages[] = 'Время: ' . $lesson->getStartTime() . ' - ' . $lesson->getEndTime();
+            $header = $this->translator->trans('schedule.short_info', [
+                '%number%' => $lesson->getNumber(),
+                '%subject%' => $this->translator->trans($subject->getSubjectName())
+            ]);
+            $messages[] = $this->translator->trans('schedule.time_info', [
+                '%start_time%' => $lesson->getStartTime(),
+                '%end_time%' => $lesson->getEndTime(),
+            ]);
 
             foreach ($subject->getTeachers() as $teacher) {
-                $messages[] = 'Учитель: ' . $teacher->getFullName();
+                $messages[] = $this->translator->trans('schedule.teacher', [
+                    '%teacher_name%' => $this->translator->trans($teacher->getFullName())
+                ]);
                 $messages[] = $teacher->getInfo();
                 $messages[] = '';
             }
@@ -107,22 +174,26 @@ readonly class SchedulerService
      */
     public function checkEndAndSend(): bool
     {
-        $day = $this->getDay();
+        $lessons = $this->getLessons();
 
-        if (!$day) {
+        if (!$lessons) {
             return false;
         }
 
         $header = '';
         $messages = [];
 
-        foreach ($day->getLessons() as $lesson) {
+        foreach ($lessons as $lesson) {
             if (!$this->checkIsNowTime(new DateTime($lesson->getEndTime()))) {
                 continue;
             }
+
             $subject = $lesson->getSubject();
-            $header = 'Урок ' . $lesson->getNumber() . ': ' . $subject->getSubjectName();
-            $messages[] = 'Конец урока';
+            $header = $this->translator->trans('schedule.short_info', [
+                '%number%' => $lesson->getNumber(),
+                '%subject%' => $this->translator->trans($subject->getSubjectName())
+            ]);
+            $messages[] = $this->translator->trans('schedule.end_of_lesson');
         }
 
         if (empty($header)) {

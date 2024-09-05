@@ -27,9 +27,10 @@ class CronCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->schedulerService->daySchedule();
+        $this->schedulerService->todaySchedule();
         $this->schedulerService->checkStartAndSend();
         $this->schedulerService->checkEndAndSend();
+        $this->schedulerService->tomorrowSchedule();
 
         return Command::SUCCESS;
     }

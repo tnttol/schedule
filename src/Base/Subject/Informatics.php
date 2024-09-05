@@ -16,6 +16,6 @@ class Informatics extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Информатика';
+        return 'subject.informatics';
     }
 }

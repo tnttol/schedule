@@ -14,6 +14,6 @@ class UkrainianLanguage extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Украинский язык';
+        return 'subject.ukrainian_language';
     }
 }

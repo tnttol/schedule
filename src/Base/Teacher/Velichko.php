@@ -4,18 +4,17 @@ namespace App\Base\Teacher;
 
 use App\Base\TeacherInterface;
 
-class Zdorovie implements TeacherInterface
+class Velichko implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'нет данных';
+        return 'Величко Олена Михайлівна';
     }
 
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            '-',
-            'код: -'
+            'no information'
         ]);
     }
 }

@@ -8,14 +8,13 @@ class Risovanie implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'нет данных';
+        return 'no information';
     }
 
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            '-',
-            'код: -'
+            'no information'
         ]);
     }
 }

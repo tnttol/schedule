@@ -14,6 +14,6 @@ class Technologies extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Технологии';
+        return 'subject.technologies';
     }
 }

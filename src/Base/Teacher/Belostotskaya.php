@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Base\Teacher;
 
@@ -8,7 +8,7 @@ class Belostotskaya implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Белостоцкая Ольга Николаевна';
+        return 'teacher.Belostotskaya';
     }
 
     public function getInfo(): string

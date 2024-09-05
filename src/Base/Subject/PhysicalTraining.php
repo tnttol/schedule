@@ -3,17 +3,17 @@
 namespace App\Base\Subject;
 
 use App\Base\SubjectInterface;
-use App\Base\Teacher\Fizruk;
+use App\Base\Teacher\Bulaev;
 
 class PhysicalTraining extends AbstractSubject implements SubjectInterface
 {
     public function __construct()
     {
-        $this->addTeacher(new Fizruk());
+        $this->addTeacher(new Bulaev());
     }
 
     public function getSubjectName(): string
     {
-        return 'Физкультура';
+        return 'subject.physical_training';
     }
 }

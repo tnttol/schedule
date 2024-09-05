@@ -8,7 +8,7 @@ class Akimova implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Акимова Надежда Анатольевна';
+        return 'teacher.Akimova';
     }
 
     public function getInfo(): string

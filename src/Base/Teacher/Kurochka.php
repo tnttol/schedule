@@ -8,7 +8,7 @@ class Kurochka implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Курочка Андрей Александрович';
+        return 'teacher.Kurochka';
     }
 
     public function getInfo(): string

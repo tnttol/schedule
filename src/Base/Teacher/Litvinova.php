@@ -8,7 +8,7 @@ class Litvinova implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Литвинова Ксения Александровна';
+        return 'teacher.Litvinova';
     }
 
     public function getInfo(): string

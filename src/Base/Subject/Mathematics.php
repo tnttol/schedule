@@ -14,6 +14,6 @@ class Mathematics extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Математика';
+        return 'subject.mathematics';
     }
 }

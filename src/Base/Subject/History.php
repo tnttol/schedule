@@ -14,6 +14,6 @@ class History extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'История';
+        return 'subject.history';
     }
 }

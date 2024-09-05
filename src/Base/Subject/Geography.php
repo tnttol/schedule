@@ -14,6 +14,6 @@ class Geography extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'География';
+        return 'subject.geography';
     }
 }

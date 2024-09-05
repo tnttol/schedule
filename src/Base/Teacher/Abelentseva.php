@@ -8,7 +8,7 @@ class Abelentseva implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Абеленцева Алина Александровна';
+        return 'teacher.Abelentseva';
     }
 
     public function getInfo(): string

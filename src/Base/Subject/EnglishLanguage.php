@@ -14,6 +14,6 @@ class EnglishLanguage extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Английский язык';
+        return 'subject.english_language';
     }
 }

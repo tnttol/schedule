@@ -14,6 +14,6 @@ class ForeignLiterature extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Иностранная литература';
+        return 'subject.foreign_literature';
     }
 }

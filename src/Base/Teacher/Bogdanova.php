@@ -8,7 +8,7 @@ class Bogdanova implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Богданова Инна Васильевна';
+        return 'teacher.Bogdanova';
     }
 
     public function getInfo(): string

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Base\Teacher;
 
@@ -8,7 +8,7 @@ class Grinchuk implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'Гринчук Светлана';
+        return 'teacher.Grinchuk';
     }
 
     public function getInfo(): string

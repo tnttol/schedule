@@ -14,6 +14,6 @@ class NaturalScience extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Познаём природу';
+        return 'subject.natural_science';
     }
 }

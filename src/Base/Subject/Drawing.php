@@ -14,6 +14,6 @@ class Drawing extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Рисование';
+        return 'subject.drawing';
     }
 }

@@ -14,6 +14,6 @@ class Music extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Музыка';
+        return 'subject.music';
     }
 }

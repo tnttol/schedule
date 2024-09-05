@@ -14,6 +14,6 @@ class UkrainianLiterature extends AbstractSubject implements SubjectInterface
 
     public function getSubjectName(): string
     {
-        return 'Украинская литература';
+        return 'subject.ukrainian_literature';
     }
 }
