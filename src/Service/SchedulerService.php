@@ -74,7 +74,7 @@ final readonly class SchedulerService
 
         $message = trim(implode(PHP_EOL, $messages));
 
-        return $this->telegramService->sendLog(
+        return $this->telegramService->sendMessage(
             $this->translator->trans('schedule.today'),
             $message
         );
@@ -116,7 +116,7 @@ final readonly class SchedulerService
 
         $message = trim(implode(PHP_EOL, $messages));
 
-        return $this->telegramService->sendLog(
+        return $this->telegramService->sendMessage(
             $this->translator->trans('schedule.tomorrow'),
             $message
         );
@@ -166,7 +166,7 @@ final readonly class SchedulerService
 
         $message = trim(implode(PHP_EOL, $messages));
 
-        return $this->telegramService->sendLog($header, $message);
+        return $this->telegramService->sendMessage($header, $message);
     }
 
     /**
@@ -202,6 +202,6 @@ final readonly class SchedulerService
 
         $message = trim(implode(PHP_EOL, $messages));
 
-        return $this->telegramService->sendLog($header, $message);
+        return $this->telegramService->sendMessage($header, $message);
     }
 }
