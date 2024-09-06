@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Service\EnvService;
 use App\Service\SchedulerService;
 use DateException;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -13,7 +14,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 class CronCommand extends Command
 {
     public function __construct(
-        private readonly SchedulerService $schedulerService
+        private readonly SchedulerService $schedulerService,
+        private readonly EnvService $envService
     ) {
         parent::__construct();
     }
@@ -27,6 +29,10 @@ class CronCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        if ($this->envService->isDevEnv()) {
+            return Command::SUCCESS;
+        }
+
         $this->schedulerService->todaySchedule();
         $this->schedulerService->checkStartAndSend();
         $this->schedulerService->checkEndAndSend();
