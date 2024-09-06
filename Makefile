@@ -13,3 +13,5 @@ bash:
 	cd laradock ; docker-compose exec --user=laradock workspace bash
 test:
 	cd laradock ; docker-compose exec --user=laradock workspace bash -c "bin/console app:test"
+pull:
+	git pull
