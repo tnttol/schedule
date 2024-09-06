@@ -50,7 +50,8 @@ final readonly class TelegramService
     public function sendMessage(string $header, string $message, mixed $photo = null): bool
     {
         $text = '*' . $this->escapeMarkdown($header) . '*'
-            . PHP_EOL . '`' . $this->escapeMarkdown($message) . '`';
+            . PHP_EOL . $this->escapeMarkdown($message)
+        ;
 
         $params = [
             'text' => $text,
@@ -72,7 +73,8 @@ final readonly class TelegramService
         $text = '*' . $this->escapeMarkdown($header) . '*'
             . PHP_EOL . $this->escapeMarkdown($log)
             . ($data ? PHP_EOL . $this->escapeMarkdown(json_encode($data)) : '')
-            . PHP_EOL . 'env: ' . $this->envService->getEnv();
+            . PHP_EOL . 'env: ' . $this->envService->getEnv()
+        ;
 
         $params = [
             'text' => $text,
