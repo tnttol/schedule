@@ -1,6 +1,22 @@
 monolog:
     channels:
         - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
+    handlers:
+        message:
+            type: fingers_crossed
+            action_level: warning
+            #action_level: debug
+            excluded_http_codes: [ 400, 401, 403, 404 ]
+            buffer_size: 50
+            handler: deduplicated
+        deduplicated:
+            type: deduplication
+            handler: telegram
+            formatter: App\Formatter\TelegramFormatter
+        telegram:
+            type: service
+            id: Monolog\Handler\TelegramBotHandler
+            level: warning
 
 when@dev:
     monolog:
