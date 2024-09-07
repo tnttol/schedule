@@ -10,6 +10,8 @@ build-mysql:
 	cd laradock ; docker-compose build --no-cache mysql
 bash:
 	cd laradock ; docker-compose exec --user=laradock workspace bash
+install:
+	cd laradock ; docker-compose exec --user=laradock workspace bash -c "composer install"
 test:
 	cd laradock ; docker-compose exec --user=laradock workspace bash -c "bin/console app:test"
 cache-clear:
@@ -18,4 +20,4 @@ git-pull:
 	git pull
 
 restart: down up
-pull: git-pull cache-clear
+pull: git-pull install

@@ -1,5 +1,5 @@
 schedule.today: "Розклад уроків на сьогодні"
-schedule.tomorrow: "Розклад уроків на завтра"
+schedule.next_day: "Розклад уроків на наступний навчальний день"
 schedule.full_info: "Урок %number%: (%start_time% - %end_time%) %subject%"
 schedule.short_info: "Урок %number%: %subject%"
 schedule.time_info: "Час: %start_time% - %end_time%"

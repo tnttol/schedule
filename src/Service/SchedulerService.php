@@ -22,7 +22,25 @@ final readonly class SchedulerService
      */
     private function getLessons(bool $isNext = false): ?array
     {
-        $className = '\App\Base\Day\Day' . ((int) date('N') + ($isNext ? 1 : 0));
+        $n = (int) date('N');
+
+        while (true) {
+            $className = '\App\Base\Day\Day' . $n;
+
+            if (!$isNext) {
+                break;
+            }
+
+            $className = '\App\Base\Day\Day' . ++$n;
+
+            if (class_exists($className)) {
+                break;
+            }
+
+            if ($n >= 7) {
+                $n = 0;
+            }
+        }
 
         /** @var ?DayInterface $day */
         $day = class_exists($className) ? new $className : null;
@@ -83,7 +101,7 @@ final readonly class SchedulerService
     /**
      * @throws DateException
      */
-    public function tomorrowSchedule(int $minutesAfter = 10): bool
+    public function nextDaySchedule(int $minutesAfter = 10): bool
     {
         $lessons = $this->getLessons(true);
 
@@ -117,7 +135,7 @@ final readonly class SchedulerService
         $message = trim(implode(PHP_EOL, $messages));
 
         return $this->telegramService->sendMessage(
-            $this->translator->trans('schedule.tomorrow'),
+            $this->translator->trans('schedule.next_day'),
             $message
         );
     }
