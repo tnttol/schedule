@@ -16,7 +16,7 @@ final readonly class TelegramService
 
     private static function escapeMarkdown(string $string): string
     {
-        return str_replace(['[', '`', '_'], ['\[', '\`', '\_'], trim($string));
+        return str_replace(['[', '*', '`', '_'], ['\[', '\*', '\`', '\_'], trim($string));
     }
 
     private function sendCurl(array $params): bool
