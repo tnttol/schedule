@@ -15,7 +15,7 @@ class Bulaev implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            'https://calendar.app.google/t71RMUaSvFUHPUDq9'
+            'https://calendar.app.google/JWfBryq6A7tYfAn27'
         ]);
     }
 }
