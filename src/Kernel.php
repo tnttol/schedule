@@ -14,5 +14,6 @@ class Kernel extends BaseKernel
         parent::boot();
 
         date_default_timezone_set($this->getContainer()->getParameter('timezone'));
+        locale_set_default($this->getContainer()->getParameter('default_locale'));
     }
 }

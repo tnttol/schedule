@@ -7,6 +7,7 @@ use App\Base\LessonInterface;
 use DateException;
 use DateInterval;
 use DateTime;
+use IntlDateFormatter;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class SchedulerService
@@ -93,7 +94,7 @@ final readonly class SchedulerService
         $message = trim(implode(PHP_EOL, $messages));
 
         return $this->telegramService->sendMessage(
-            $this->translator->trans('schedule.today'),
+            $this->translator->trans('schedule.today', ['%date%' => IntlDateFormatter::formatObject(new DateTime(), 'eeee d MMMM')]),
             $message
         );
     }
