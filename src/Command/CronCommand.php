@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use App\Message\Telegram\LogEvent;
 use App\Service\EnvService;
 use App\Service\SchedulerService;
 use App\Service\TelegramService;
