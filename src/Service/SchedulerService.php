@@ -103,7 +103,7 @@ final readonly class SchedulerService
      */
     public function nextDaySchedule(int $minutesAfter = 10): bool
     {
-        $lessons = $this->getLessons(true);
+        $lessons = $this->getLessons();
 
         if (!$lessons) {
             return false;
@@ -113,6 +113,12 @@ final readonly class SchedulerService
         $checkTime = (new DateTime($lastLesson->getEndTime()))->add(new DateInterval('PT' . $minutesAfter . 'M'));
 
         if (!$this->checkIsNowTime($checkTime)) {
+            return false;
+        }
+
+        $lessons = $this->getLessons(true);
+
+        if (!$lessons) {
             return false;
         }
 
