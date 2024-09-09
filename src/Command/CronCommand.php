@@ -32,8 +32,6 @@ class CronCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        return Command::SUCCESS;
-
         $lock = (new LockFactory(new SemaphoreStore()))
             ->createLock(resource: 'cron-command', ttl: 50)
         ;
