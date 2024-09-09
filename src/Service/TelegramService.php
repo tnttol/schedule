@@ -73,7 +73,7 @@ final readonly class TelegramService
         $text = '*' . $this->escapeMarkdown($header) . '*'
             . PHP_EOL . $this->escapeMarkdown($log)
             . ($data ? PHP_EOL . $this->escapeMarkdown(json_encode($data)) : '')
-            . PHP_EOL . 'env: ' . $this->envService->getEnv()
+            . PHP_EOL . 'ENV SCHEDULE: ' . $this->envService->getEnv()
         ;
 
         $params = [
