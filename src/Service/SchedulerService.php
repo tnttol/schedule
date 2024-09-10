@@ -177,10 +177,16 @@ final readonly class SchedulerService
             ]);
 
             foreach ($subject->getTeachers() as $teacher) {
-                $messages[] = $this->translator->trans('schedule.teacher', [
-                    '%teacher_name%' => $this->translator->trans($teacher->getFullName())
-                ]);
-                $messages[] = $teacher->getInfo();
+                if ($teacher->getFullName()) {
+                    $messages[] = $this->translator->trans('schedule.teacher', [
+                        '%teacher_name%' => $this->translator->trans($teacher->getFullName())
+                    ]);
+                }
+
+                if ($teacher->getInfo()) {
+                    $messages[] = $teacher->getInfo();
+                }
+
                 $messages[] = '';
             }
         }

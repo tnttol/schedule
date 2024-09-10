@@ -8,7 +8,7 @@ class Unknown implements TeacherInterface
 {
     public function getFullName(): string
     {
-        return 'no information';
+        return '';
     }
 
     public function getInfo(): string
