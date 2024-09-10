@@ -3,13 +3,13 @@
 namespace App\Base\Subject;
 
 use App\Base\SubjectInterface;
-use App\Base\Teacher\Unknown;
+use App\Base\Teacher\Skochko;
 
 class UkrainianLiterature extends AbstractSubject implements SubjectInterface
 {
     public function __construct()
     {
-        $this->addTeacher(new Unknown());
+        $this->addTeacher(new Skochko());
     }
 
     public function getSubjectName(): string
