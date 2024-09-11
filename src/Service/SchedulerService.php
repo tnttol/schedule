@@ -94,7 +94,12 @@ final readonly class SchedulerService
         $message = trim(implode(PHP_EOL, $messages));
 
         return $this->telegramService->sendMessage(
-            $this->translator->trans('schedule.today', ['%date%' => IntlDateFormatter::formatObject(new DateTime(), 'eeee d MMMM')]),
+            $this->translator->trans(
+                'schedule.today',
+                [
+                    '%date%' => mb_ucfirst(IntlDateFormatter::formatObject(new DateTime(), 'eeee d MMMM'))
+                ]
+            ),
             $message
         );
     }

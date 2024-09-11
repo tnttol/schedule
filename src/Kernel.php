@@ -17,3 +17,12 @@ class Kernel extends BaseKernel
         locale_set_default($this->getContainer()->getParameter('default_locale'));
     }
 }
+
+if (!function_exists('mb_ucfirst')) {
+    function mb_ucfirst(string $string, string $enc = 'UTF-8'): string
+    {
+        return mb_strtoupper(mb_substr($string, 0, 1, $enc), $enc)
+            . mb_substr($string, 1, mb_strlen($string, $enc), $enc)
+        ;
+    }
+}

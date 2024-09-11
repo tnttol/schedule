@@ -9,6 +9,7 @@
     "ext-curl": "*",
     "ext-iconv": "*",
     "ext-intl": "*",
+    "ext-mbstring": "*",
     "symfony/console": "^7.1",
     "symfony/dotenv": "^7.1",
     "symfony/flex": "^2",
