@@ -9,6 +9,7 @@ use DateInterval;
 use DateTime;
 use IntlDateFormatter;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use function Symfony\Component\String\s;
 
 final readonly class SchedulerService
 {
@@ -97,7 +98,7 @@ final readonly class SchedulerService
             $this->translator->trans(
                 'schedule.today',
                 [
-                    '%date%' => mb_ucfirst(IntlDateFormatter::formatObject(new DateTime(), 'eeee d MMMM'))
+                    '%date%' => s(IntlDateFormatter::formatObject(new DateTime(), 'eeee d MMMM'))->title()
                 ]
             ),
             $message
