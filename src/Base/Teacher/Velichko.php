@@ -13,8 +13,6 @@ class Velichko implements TeacherInterface
 
     public function getInfo(): string
     {
-        return implode(PHP_EOL, [
-            'no information'
-        ]);
+        return '';
     }
 }
