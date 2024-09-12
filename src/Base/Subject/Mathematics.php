@@ -12,6 +12,11 @@ class Mathematics extends AbstractSubject implements SubjectInterface
         $this->addTeacher(new Litvinova());
     }
 
+    public function getInfo(): string
+    {
+        return 'https://classroom.google.com/c/NzEwNDg1MTI3ODcy/a/NzEwODMzNTMxMjcz/details';
+    }
+
     public function getSubjectName(): string
     {
         return 'subject.mathematics';

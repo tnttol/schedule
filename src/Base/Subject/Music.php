@@ -12,6 +12,11 @@ class Music extends AbstractSubject implements SubjectInterface
         $this->addTeacher(new Mishchenko());
     }
 
+    public function getInfo(): string
+    {
+        return 'https://classroom.google.com/c/NzEwMzMxNDkyMzg2?cjc=shmaqtg';
+    }
+
     public function getSubjectName(): string
     {
         return 'subject.music';

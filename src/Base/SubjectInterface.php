@@ -6,8 +6,7 @@ interface SubjectInterface
 {
     public function getSubjectName(): string;
     public function addTeacher(TeacherInterface $teacher);
-    /**
-     * @return array<TeacherInterface>
-     */
+    public function getInfo(): string;
+    /** @return array<TeacherInterface> */
     public function getTeachers(): array;
 }
