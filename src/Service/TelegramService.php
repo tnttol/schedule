@@ -41,7 +41,7 @@ final readonly class TelegramService
         }
 
         if (!isset($r['ok'])) {
-            throw new Exception(json_encode($resp));
+            throw new Exception((string) $resp);
         }
 
         return true;
@@ -49,13 +49,13 @@ final readonly class TelegramService
 
     public function sendMessage(string $header, string $message, mixed $photo = null): bool
     {
-        $text = '*' . $this->escapeMarkdown($header) . '*'
+        $text = '<b>' . $this->escapeMarkdown($header) . '</b>'
             . PHP_EOL . $this->escapeMarkdown($message)
         ;
 
         $params = [
             'text' => $text,
-            'parse_mode' => 'markdown',
+            'parse_mode' => 'html',
             'disable_web_page_preview' => true,
             'chat_id' => $this->channelId
         ];
@@ -70,7 +70,7 @@ final readonly class TelegramService
 
     public function sendLog(string $header, string $log, array $data = [], mixed $photo = null): bool
     {
-        $text = '*' . $this->escapeMarkdown($header) . '*'
+        $text = '<b>' . $this->escapeMarkdown($header) . '</b>'
             . PHP_EOL . $this->escapeMarkdown($log)
             . ($data ? PHP_EOL . $this->escapeMarkdown(json_encode($data)) : '')
             . PHP_EOL . 'ENV SCHEDULE: ' . $this->envService->getEnv()
@@ -78,7 +78,7 @@ final readonly class TelegramService
 
         $params = [
             'text' => $text,
-            'parse_mode' => 'markdown',
+            'parse_mode' => 'html',
             'disable_web_page_preview' => true,
             'chat_id' => $this->logChannelId
         ];

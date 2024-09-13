@@ -14,8 +14,9 @@ class Abelentseva implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            'https://us04web.zoom.us/j/77741182923?pwd=oVqQSrv6kQHlY4KmaKx0UuHTMfjROO.1',
-            'код: 9ukTwK'
+            '<a href="https://us04web.zoom.us/j/77741182923?pwd=oVqQSrv6kQHlY4KmaKx0UuHTMfjROO.1">zoom</a>',
+            'код: 9ukTwK',
+            '<a href="https://classroom.google.com/c/NzA4NTYzNDk2MTkx?cjc=ik4t6y6">classroom</a>',
         ]);
     }
 }

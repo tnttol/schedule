@@ -12,11 +12,6 @@ class EnglishLanguage extends AbstractSubject implements SubjectInterface
         $this->addTeacher(new Abelentseva());
     }
 
-    public function getInfo(): string
-    {
-        return 'https://classroom.google.com/c/NzA4NTYzNDk2MTkx?cjc=ik4t6y6';
-    }
-
     public function getSubjectName(): string
     {
         return 'subject.english_language';

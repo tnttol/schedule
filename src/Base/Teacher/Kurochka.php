@@ -14,7 +14,8 @@ class Kurochka implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            'https://us04web.zoom.us/j/74993907385?pwd=ISUtLF6eHSrF8HcfbGG5bOdoKqabqW.1',
+            '<a href="https://us04web.zoom.us/j/74993907385?pwd=ISUtLF6eHSrF8HcfbGG5bOdoKqabqW.1">zoom</a>',
+            //'<a href="">classroom</a>'
         ]);
     }
 }

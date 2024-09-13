@@ -14,7 +14,8 @@ class Grinchuk implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            'https://meet.google.com/htw-xyai-wce'
+            '<a href="https://meet.google.com/htw-xyai-wce">google meet</a>',
+            //'<a href="">classroom</a>'
         ]);
     }
 }

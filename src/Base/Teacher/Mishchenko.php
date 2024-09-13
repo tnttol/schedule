@@ -13,6 +13,6 @@ class Mishchenko implements TeacherInterface
 
     public function getInfo(): string
     {
-        return '';
+        return '<a href="https://classroom.google.com/c/NzEwMzMxNDkyMzg2?cjc=shmaqtg">classroom</a>';
     }
 }

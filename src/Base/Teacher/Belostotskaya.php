@@ -14,7 +14,7 @@ class Belostotskaya implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            'https://us04web.zoom.us/j/78074571621?pwd=LLLVrEG9FhfFjMxK7gcO7kcHcQ7ObW.1',
+            '<a href="https://us04web.zoom.us/j/78074571621?pwd=LLLVrEG9FhfFjMxK7gcO7kcHcQ7ObW.1">zoom</a>',
             'код: hqh6zH'
         ]);
     }

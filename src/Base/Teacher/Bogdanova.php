@@ -14,8 +14,9 @@ class Bogdanova implements TeacherInterface
     public function getInfo(): string
     {
         return implode(PHP_EOL, [
-            'https://us04web.zoom.us/j/72832921772?pwd=ZP7ZKMRDhIMZ7a7hb6qfAUUcNLQmB2.1',
-            'код: 2C8zB4'
+            '<a href="https://us04web.zoom.us/j/72832921772?pwd=ZP7ZKMRDhIMZ7a7hb6qfAUUcNLQmB2.1">zoom</a>',
+            'код: 2C8zB4',
+            //'<a href="">classroom</a>'
         ]);
     }
 }
