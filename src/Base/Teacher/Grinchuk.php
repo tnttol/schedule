@@ -15,7 +15,7 @@ class Grinchuk implements TeacherInterface
     {
         return implode(PHP_EOL, [
             '<a href="https://meet.google.com/htw-xyai-wce">google meet</a>',
-            //'<a href="https://classroom.google.com/c/NzExMDE2NDgwMzk4?cjc=zpgdlh6">classroom</a>'
+            '<a href="https://classroom.google.com/c/NzExMDE2NDgwMzk4?cjc=zpgdlh6">classroom</a>'
         ]);
     }
 }
