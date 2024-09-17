@@ -15,6 +15,11 @@ class AbstractSubject
         return $this;
     }
 
+    public function getInfo(): string
+    {
+        return '';
+    }
+
     /** @return array<TeacherInterface> */
     public function getTeachers(): array
     {

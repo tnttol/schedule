@@ -14,7 +14,7 @@ use function Symfony\Component\String\s;
 final readonly class SchedulerService
 {
     public function __construct(
-        private TelegramService $telegramService,
+        private TelegramService     $telegramService,
         private TranslatorInterface $translator
     ) {
     }
@@ -191,6 +191,10 @@ final readonly class SchedulerService
 
                 if ($teacher->getInfo()) {
                     $messages[] = $teacher->getInfo();
+                }
+
+                if ($subject->getInfo()) {
+                    $messages[] = $subject->getInfo();
                 }
 
                 $messages[] = '';
