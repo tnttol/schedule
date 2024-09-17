@@ -16,7 +16,7 @@ class Litvinova implements TeacherInterface
         return implode(PHP_EOL, [
             '<a href="https://us05web.zoom.us/j/4119630528?pwd=MzFkcHlSVU9takFDMkdTMHBVYVVBUT09">zoom</a>',
             'код: 2Vn6zt',
-            //'<a href="https://classroom.google.com/c/NzEwNDg1MTI3ODcy/a/NzEwODMzNTMxMjcz/details">classroom</a>'
+            '<a href="https://classroom.google.com/c/NzEwNDg1MTI3ODcy">classroom</a>'
         ]);
     }
 }
