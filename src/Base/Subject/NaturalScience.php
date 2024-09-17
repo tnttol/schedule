@@ -12,6 +12,11 @@ class NaturalScience extends AbstractSubject implements SubjectInterface
         $this->addTeacher(new Nozdrachova());
     }
 
+    public function getName(): string
+    {
+        return '<a href="https://classroom.google.com/c/NzA5NzMwOTkwMjkw?cjc=m43ygfv">classroom</a>';
+    }
+
     public function getSubjectName(): string
     {
         return 'subject.natural_science';

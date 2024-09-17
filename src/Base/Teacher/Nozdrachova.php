@@ -16,7 +16,6 @@ class Nozdrachova implements TeacherInterface
         return implode(PHP_EOL, [
             '<a href="https://us04web.zoom.us/j/7787554364?pwd=WiEG1ah8N1oDW9ZcfC4Iv4jAaWRgCj.1">zoom</a>',
             'код: 111',
-            //'<a href="https://classroom.google.com/c/NzA5NzMwOTkwMjkw?cjc=m43ygfv">classroom</a>'
         ]);
     }
 }
