@@ -14,7 +14,7 @@ class History extends AbstractSubject implements SubjectInterface
 
     public function getInfo(): string
     {
-        return 'https://classroom.google.com/c/Njg1MzM1NTExNjg5?cjc=nmqbyga';
+        return '<a href="https://classroom.google.com/c/Njg1MzM1NTExNjg5?cjc=nmqbyga">classroom</a>';
     }
 
     public function getSubjectName(): string
