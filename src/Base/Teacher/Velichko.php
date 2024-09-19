@@ -13,6 +13,9 @@ class Velichko implements TeacherInterface
 
     public function getInfo(): string
     {
-        return '';
+        return implode(PHP_EOL, [
+            '<a href="https://us04web.zoom.us/j/73760619821?pwd=AW3ykRRBzf4rdH8YbQMOztu9BABCcU.1">zoom</a>',
+            'код: 7UXnj8',
+        ]);
     }
 }
