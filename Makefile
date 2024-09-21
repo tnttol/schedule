@@ -1,11 +1,11 @@
 up:
-	cd laradock ; docker-compose up -d mysql workspace php-worker php-fpm nginx
+	cd laradock ; docker-compose up -d workspace php-worker php-fpm
 down:
 	cd laradock ; docker-compose down -v
 env:
 	cd laradock ; rm .env ; cp .env.schedule .env
 build:
-	cd laradock ; docker system prune -a ; docker-compose build --no-cache mysql workspace php-worker php-fpm nginx
+	cd laradock ; docker system prune -a ; docker-compose build --no-cache workspace php-worker php-fpm
 build-mysql:
 	cd laradock ; docker-compose build --no-cache mysql
 bash:
