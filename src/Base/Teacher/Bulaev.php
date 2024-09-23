@@ -16,7 +16,7 @@ class Bulaev implements TeacherInterface
     {
         return implode(PHP_EOL, [
             //'<a href="https://calendar.app.google/JWfBryq6A7tYfAn27">google calendar</a>',
-            '<a href="https://meet.google.com/vxp-vcri-qgh">google meet</a>',
+            '<a href="https://meet.google.com/tct-jfuj-dvh">google meet</a>',
         ]);
     }
 }
