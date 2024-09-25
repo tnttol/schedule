@@ -61,7 +61,7 @@ final readonly class SchedulerService
     /**
      * @throws DateException
      */
-    public function todaySchedule(int $minutesBefore = 60): bool
+    public function todaySchedule(int $minutesBefore = 30): bool
     {
         $lessons = $this->getLessons();
 
@@ -108,7 +108,7 @@ final readonly class SchedulerService
     /**
      * @throws DateException
      */
-    public function nextDaySchedule(int $minutesAfter = 10): bool
+    public function nextDaySchedule(int $minutesAfter = 30): bool
     {
         $lessons = $this->getLessons();
 
