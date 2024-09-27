@@ -15,7 +15,7 @@ class Kurochka implements TeacherInterface
     {
         return implode(PHP_EOL, [
             '<a href="https://us04web.zoom.us/j/74993907385?pwd=ISUtLF6eHSrF8HcfbGG5bOdoKqabqW.1">zoom</a>',
-            //'<a href="">classroom</a>'
+            '<a href="https://classroom.google.com/c/NzEwMzU1NjIxNTQ3?cjc=uz4rfec">classroom</a>'
         ]);
     }
 }
