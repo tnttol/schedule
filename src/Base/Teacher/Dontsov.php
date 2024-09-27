@@ -15,8 +15,8 @@ class Dontsov implements TeacherInterface
     {
         return implode(PHP_EOL, [
             '<a href="https://us05web.zoom.us/j/82368183253?pwd=eb2ZXf54K15okGS2oVoBFATMPpiB1O.1">zoom</a>',
-            'код: 12345678'
-            //'<a href="">classroom</a>'
+            'код: 12345678',
+            '<a href="https://classroom.google.com/c/NzEwMzUwMzc5NjMw?cjc=pwh3uod">classroom</a>'
         ]);
     }
 }
