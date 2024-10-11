@@ -25,8 +25,8 @@ class Day5 extends AbstractDay implements DayInterface
         $this
             ->addLesson((new Lesson1())->addSubject(new Informatics()))
             ->addLesson((new Lesson2())->addSubject(new EnglishLanguage()))
-            ->addLesson((new Lesson3())->addSubject(new UkrainianLiterature()))
-            ->addLesson((new Lesson4())->addSubject(new UkrainianLanguage()))
+            ->addLesson((new Lesson3())->addSubject(new UkrainianLanguage()))
+            ->addLesson((new Lesson4())->addSubject(new UkrainianLiterature()))
             ->addLesson((new Lesson5())->addSubject(new Mathematics()))
             ->addLesson((new Lesson6())->addSubject(new Drawing()))
             ->addLesson((new Lesson7())->addSubject(new NaturalScience()))
