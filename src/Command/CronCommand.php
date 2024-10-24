@@ -6,6 +6,7 @@ use App\Service\EnvService;
 use App\Service\SchedulerService;
 use App\Service\TelegramService;
 use DateException;
+use DateTime;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,6 +18,15 @@ use Throwable;
 #[AsCommand(name: 'app:cron')]
 class CronCommand extends Command
 {
+    private array $skipToday = [
+        # осенние каникулы
+        '2024-10-28',
+        '2024-10-29',
+        '2024-10-30',
+        '2024-10-31',
+        '2024-11-01',
+    ];
+
     public function __construct(
         private readonly SchedulerService $schedulerService,
         private readonly EnvService       $envService,
@@ -56,12 +66,23 @@ class CronCommand extends Command
         return Command::SUCCESS;
     }
 
+    private function checkIsSkipToday(): bool
+    {
+        $today = (new DateTime())->format('Y-m-d');
+
+        return in_array($today, $this->skipToday, true);
+    }
+
     /**
      * @throws DateException
      */
     private function runEvery5Minutes(): void
     {
         if ($this->envService->isDevEnv()) {
+            return;
+        }
+
+        if ($this->checkIsSkipToday()) {
             return;
         }
 

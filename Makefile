@@ -12,6 +12,8 @@ bash:
 	cd laradock ; docker-compose exec --user=laradock workspace bash
 install:
 	cd laradock ; docker-compose exec --user=laradock workspace bash -c "composer install"
+cron:
+	cd laradock ; docker-compose exec --user=laradock workspace bash -c "bin/console app:cron"
 test:
 	cd laradock ; docker-compose exec --user=laradock workspace bash -c "bin/console app:test"
 cache-clear:
