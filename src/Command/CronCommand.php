@@ -68,6 +68,6 @@ class CronCommand extends Command
         $this->schedulerService->todaySchedule();
         $this->schedulerService->checkStartAndSend();
         $this->schedulerService->checkEndAndSend();
-        $this->schedulerService->nextDaySchedule();
+        //$this->schedulerService->nextDaySchedule();
     }
 }

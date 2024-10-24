@@ -16,8 +16,10 @@ class Velichko implements TeacherInterface
         return implode(PHP_EOL, [
             //'<a href="https://us04web.zoom.us/j/73760619821?pwd=AW3ykRRBzf4rdH8YbQMOztu9BABCcU.1">zoom</a>',
             //'код: 7UXnj8',
-            '<a href="https://us04web.zoom.us/j/71520206702?pwd=XsGCcWQspfEBEAAgPny3ihcga50vOG.1">zoom</a>',
-            'код: 8JYYGF',
+            //'<a href="https://us04web.zoom.us/j/71520206702?pwd=XsGCcWQspfEBEAAgPny3ihcga50vOG.1">zoom</a>',
+            //'код: 8JYYGF',
+            '<a href="https://us04web.zoom.us/j/74413031782?pwd=0vaVtaZNr8Qxv3LIbP8V20LPiIVqvC.1">zoom</a>',
+            'код: 0BTN0T',
         ]);
     }
 }
