@@ -20,6 +20,10 @@ class Velichko implements TeacherInterface
             //'код: 8JYYGF',
             //'<a href="https://us04web.zoom.us/j/74377047091?pwd=O1vy12L9VpVHwubOwTOFLRBnCQRXpO.1">zoom</a>',
             //'код: 4A1GjZ',
+            //'<a href="https://us04web.zoom.us/j/72117343464?pwd=I2eexFdclZK77FwNXc7KfcWbfhUqxw.1">zoom</a>',
+            //'код: 2NpFTL',
+            //'<a href="https://us04web.zoom.us/j/75466829000?pwd=2mcRKsbT5Cub0p4Un4VCLK2hifsR6O.1">zoom</a>',
+            //'код: 7TVeaa',
         ]);
     }
 }
